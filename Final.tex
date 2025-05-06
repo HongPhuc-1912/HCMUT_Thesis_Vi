@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage[subpreambles=true]{standalone}
+\usepackage[a4paper,right=2cm,left=3cm,top=2cm,bottom=2.5cm]{geometry}
+%\usepackage[a-1]{pdfa} % Xuất PDF/X-1a phục vụ cho việc in ấn
+
+\usepackage{Pages/Cover_Pages/Configuration/Cover_Config}
+\usepackage{Pages/Content_Pages/Configuration/Content_Config}
+
+\usepackage{import}
+
+\begin{document}
+    \import{Pages/Cover_Pages/}{Cover_Page.tex}
+    \import{Pages/Content_Pages/}{Content_Page.tex}
+\end{document}

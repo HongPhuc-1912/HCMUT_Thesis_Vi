@@ -1,0 +1,12 @@
+% List of Tables
+{
+  \let\section\oldsection   % Sử dụng bản gốc không phải bản đã được chỉnh trong file Sty
+  \let\newpage\oldnewpage   % Sử dụng bản gốc không phải bản đã được chỉnh trong file Sty
+  \clearpage
+  \pagestyle{tocstyle}      % Áp dụng kiểu trang đặc biệt
+  {\let\oldnumberline\numberline
+    \renewcommand{\numberline}{Bảng~\oldnumberline}
+    \listoftables}
+    \addcontentsline{toc}{section}{DANH MỤC BẢNG BIỂU}
+  \clearpage
+}

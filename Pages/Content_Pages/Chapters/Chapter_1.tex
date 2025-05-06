@@ -1,0 +1,107 @@
+\clearpage
+
+\section{TỔNG QUAN ĐỀ TÀI}
+Sự gia tăng áp dụng năng lượng tái tạo trên toàn cầu đòi hỏi phát triển các hệ thống phân phối điện hiệu quả và tối ưu hơn. Trong bối cảnh đó, microgrid (lưới điện siêu nhỏ) – một cơ chế phân phối điện phi tập trung và linh hoạt để tích hợp các nguồn năng lượng tái tạo phân tán – đã trở thành trọng tâm nghiên cứu nổi bật trong thời gian gần đây. \par
+Chương này trình bày phân tích toàn diện về xu hướng phát triển năng lượng tái tạo trong thập kỷ qua, xem xét cả trên quy mô toàn cầu lẫn khu vực. Nghiên cứu cung cấp đánh giá so sánh giữa hai mô hình lưới điện siêu nhỏ xoay chiều (AC) và một chiều (DC), nhấn mạnh các đặc điểm kỹ thuật và ưu điểm vận hành riêng của từng hệ thống. Đặc biệt, đồ án tập trung làm rõ những tiến bộ công nghệ và ứng dụng thực tiễn của hệ thống lưới điện DC, vì đây là trọng tâm nghiên cứu chính của đề tài. Cuối cùng, mục tiêu nghiên cứu và cấu trúc đồ án được trình bày nhằm thiết lập khung phân tích cho các nội dung tiếp theo.\par
+
+\subsection{Cơ sở nền tảng}
+Nhu cầu về năng lượng sạch đang ngày càng gia tăng. Bên cạnh việc gây ô nhiễm môi trường, các nguồn năng lượng hóa thạch còn có trữ lượng hữu hạn. Việc sử dụng các nguồn năng lượng tái tạo (RES - Renewable Energy Sources), chẳng hạn như năng lượng gió, năng lượng mặt trời và thủy điện, đang làm thay đổi cơ cấu tiêu thụ năng lượng trên toàn cầu.\par
+Xét theo lĩnh vực tiêu thụ, tỷ trọng năng lượng tái tạo trong tổng mức tiêu thụ năng lượng cuối cùng (TFEC) năm 2021 dao động từ mức cao 16,8 \% trong ngành công nghiệp xuống chỉ còn 3,9\% trong lĩnh vực giao thông vận tải (xem Hình \ref{fig:C1_1}). Những chênh lệch này không chỉ phản ánh sự khác biệt về đặc điểm giữa các ngành mà còn cho thấy sự thiếu vắng các chính sách tổng thể nhằm tăng tỷ trọng năng lượng tái tạo cả trong từng lĩnh vực riêng lẻ lẫn giữa các lĩnh vực với nhau. Cần có thêm các biện pháp hành động để đẩy nhanh quá trình điện khí hóa các lĩnh vực sử dụng cuối.\par
+\begin{figure}
+    \centering
+    \input{Figures/Content_Pages/Chapter_1/C1_1}
+    \caption{Tỷ lệ năng lượng tái tạo theo ngành trong năm 2021 \cite{ren21_renewables_2021}}
+    \label{fig:C1_1}
+\end{figure}
+Quá trình điện khí hóa các lĩnh vực tiêu thụ năng lượng đang giúp tăng tỷ trọng sử dụng năng lượng tái tạo. Năm 2021, nông nghiệp dẫn đầu với tỷ lệ điện khí hóa 27\%, nhờ tiến bộ công nghệ và hiệu quả kinh tế. Trong khi đó, giao thông ghi nhận xe điện chiếm 18\% doanh số bán xe năm 2023, với sự hỗ trợ từ chính sách nhiều nước. Lĩnh vực xây dựng tăng trưởng chậm (chỉ 2\% giai đoạn 2011-2021) dù lắp đặt máy bơm nhiệt tăng 10\% năm 2023. Ngành công nghiệp còn hạn chế do khó khăn trong các quy trình nhiệt độ cao như sản xuất thép, xi măng, với sự chênh lệch lớn giữa các phân ngành. \par
+Cùng với việc gia tăng các ngành sử dụng năng lượng tái tạo, tỷ trọng điện năng (bao gồm cả ứng dụng cho nhiệt và giao thông) trong cơ cấu cung cấp năng lượng toàn cầu đã tăng liên tục, từ 19\% năm 2011 lên 23\% năm 2021, phản ánh xu hướng phụ thuộc ngày càng lớn vào điện năng để đáp ứng nhu cầu đa ngành (xem Hình \ref{fig:C1_2}). Mặc dù tỷ lệ năng lượng tái tạo trong sản xuất điện tăng nhẹ từ 29.4\% (2022) lên 30.3\% (2023), mức tăng này chủ yếu đáp ứng nhu cầu điện gia tăng chứ chưa thực sự thay thế đáng kể cho nhiên liệu hóa thạch.\par
+\begin{figure}
+    \centering
+    \input{Figures/Content_Pages/Chapter_1/C1_2}
+    \caption{Sản xuất điện theo nguồn năng lượng, 2014-2023}
+    \label{fig:C1_2}
+\end{figure}
+Việc áp dụng các nguồn năng lượng tái tạo phân tán (RES) đòi hỏi phải thay đổi cấu trúc phân phối điện truyền thống vốn chỉ có dòng điện chạy một chiều. Các yếu tố môi trường như sự biến đổi của gió và bức xạ mặt trời khiến cho việc phát điện từ các nguồn RES trở nên gián đoạn và không liên tục một cách khó lường, từ đó ảnh hưởng và gây áp lực lên công tác điều chỉnh và quản lý công suất đỉnh. Thông thường, các nguồn RES được kết nối với lưới điện thông qua các thiết bị điện tử công suất. Các sóng hài tần số cao sinh ra từ bộ chuyển đổi có thể làm giảm chất lượng điện năng và tương tác với các bộ lọc trên đường dây điện, đe dọa đến sự ổn định của hệ thống.\par
+Xuất phát từ những lo ngại nêu trên, một cấu trúc phân phối điện mới và hiệu quả dành cho các nguồn năng lượng phân tán là yêu cầu cấp thiết. Microgrid (lưới điện siêu nhỏ) đã được đề xuất để đảm nhận vai trò này.
+\subsection{Định nghĩa và cấu hình của lưới điện siêu nhỏ}
+Có nhiều cách khác nhau để định nghĩa về lưới điện siêu nhỏ, tuy nhiên có 2 cách sau được các nhà nghiên cứu và các kỹ sư trên thế giới chấp nhận rộng rãi. \par
+\textit{Định nghĩa 1:} Một lưới điện siêu nhỏ (MG) là một mạng lưới phân phối điện áp thấp (LV) có phạm vi địa lý giới hạn, bao gồm các nguồn năng lượng phân tán tại chỗ, các hệ thống lưu trữ năng lượng (ESS) và các tải tiêu thụ, có khả năng vận hành đồng bộ với lưới điện chính (macrogrid) hoặc tách biệt như một lưới điện độc lập, tùy thuộc vào điều kiện vận hành vật lý và (hoặc) kinh tế \cite{gharehpetian2021microgrids}. \par 
+\textit{Định nghĩa 2:} Một lưới điện siêu nhỏ là một hệ thống điện quy mô nhỏ, bao gồm các nguồn phát điện phân tán (DG), các nguồn năng lượng phân tán (DER) và các hệ thống lưu trữ năng lượng (ESS), kết hợp với các tải điều khiển được và không điều khiển, được vận hành đồng bộ thông qua bộ giao tiếp điện tử công suất (PEI) cùng với các thiết bị bảo vệ. Lưới điện siêu nhỏ là tập hợp các nguồn phát điện phân tán và các nguồn năng lượng phân tán như tua-bin khí, pin năng lượng mặt trời (SPV), v.v., được tích hợp với các thiết bị lưu trữ điện và nhiệt nhằm đáp ứng nhu cầu năng lượng tại chỗ của người tiêu dùng. Cấu trúc điển hình của một lưới điện siêu nhỏ bao gồm các nguồn năng lượng phân tán, thiết bị lưu trữ năng lượng và tải \cite{tomar2021control}.\par'
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Content_Pages/Chapter_1/C1_3.pdf}
+    \caption{Sơ đồ đơn giản của lưới điện siêu nhỏ \cite{PATRAO2015415}.}
+    \label{fig:C1_3}
+\end{figure}
+Hình \ref{fig:C1_3} minh họa một lưới điệnsiêu nhỏđiển hình. Các nguồn năng lượng phân tán và tải được kết nối với nhau thông qua cùng một mạng lưới truyền tải. Các phân hệ của lưới điện siêu nhỏ sau đó có thể được liên kết với nhau thông qua điểm nối chung (POCC) \cite{tomar2021control}. Chúng cũng có thể được kết nối với lưới điện chính thông qua bộ chuyển đổi/nghịch lưu giao tiếp.\par
+Một lưới điện siêu nhỏ điện áp thấp điển hình thường bao gồm các thành phần sau:\par
+\begin{itemize}
+    \item \textbf{Các nguồn năng lượng phân tán:} Các nguồn năng lượng phân tán có thể bao gồm các nguồn năng lượng tái tạo như năng lượng mặt trời, năng lượng gió, thủy điện, năng lượng sinh khối (chẳng hạn như pin nhiên liệu) hoặc năng lượng nhiệt.
+    \item \textbf{Các thiết bị lưu trũ năng lượng:} Các thiết bị lưu trữ năng lượng bao gồm thiết bị lưu trữ năng lượng điện hóa, ví dụ như ắc quy axit-chì, pin lithium-ion; thiết bị lưu trữ năng lượng điện, ví dụ như siêu tụ điện; và thiết bị lưu trữ năng lượng cơ học, ví dụ như khí nén và bánh đà.
+    \item \textbf{Giao tiếp với lưới chính:} Hệ thống lưới điện siêu nhỏ có thể hoạt động ở chế độ nối lưới hoặc chế độ tách lưới. Chế độ tách lưới còn được gọi là chế độ cô lập hoặc chế độ đảo. 
+    \item \textbf{Tải điện:} Tải điện có thể là tải không điều khiển được, ví dụ như phụ tải dân dụng (các thiết bị gia đình), hoặc tải điều khiển được, có khả năng tham gia vào quá trình quản lý điện năng trong lưới điện siêu nhỏ, ví dụ như xe điện (EV).
+\end{itemize} \par
+Dựa vào các đặc điểm và tính chất trên, người ta chia lưới điện siêu nhỏ thành 3 loại chính: Lưới điện siêu nhỏ 1 chiều (DC Microgrid), lưới điện siêu nhỏ xoay chiều (AC microgrid) và lưới điện siêu nhỏ lai (Hybrid Micrigrid).\par
+\subsubsection{Lưới điện siêu nhỏ AC và DC}
+Thanh cái chung trong (PCC) một lưới điện siêu nhỏ có thể là dòng xoay chiều (AC) hoặc dòng một chiều (DC). Mối quan hệ giữa lưới điện siêu nhỏ và lưới điện tiện ích truyền thống được thể hiện trong Hình \ref{fig:C1_4}.\par
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Content_Pages/Chapter_1/C1_4.pdf}
+    \caption{Kiến trúc lưới điện phân phối.}
+    \label{fig:C1_4}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/Content_Pages/Chapter_1/C1_5.pdf}
+    \caption{Kiến trúc lưới điện siêu nhỏ AC điển hình.}
+    \label{fig:C1_5}
+\end{figure}
+Lưới điện chính vẫn là thành phần quan trọng trong kiến trúc phân phối điện hiện nay. Các lưới điện siêu nhỏ được sử dụng như một dòng phân phối phụ, nhằm quản lý các nguồn năng lượng tái tạo và cung cấp điện cho các tải cục bộ. Các lưới điện siêu nhỏ xoay chiều và một chiều có thể được tích hợp để hình thành lưới điện siêu nhỏ lai. Một bộ chuyển đổi giao tiếp là cần thiết để liên kết giữa các thanh cái AC và DC. Bộ chuyển đổi này có khả năng liên kết hoặc cô lập lưới điện siêu nhỏ DC một cách tự nhiên mà không cần đến công tắc hoặc thiết bị ngắt bổ sung.\par
+Trong những thập kỷ qua, các lưới điện siêu nhỏ xoay chiều đã được nghiên cứu rộng rãi nhằm phù hợp với cơ sở hạ tầng hệ thống điện hiện có. Hình \ref{fig:C1_5} minh họa một hệ thống lưới điện siêu nhỏ AC điển hình. Các nguồn năng lượng tái tạo được kết nối với thanh cái AC chung thông qua các bộ biến đổi điện tử công suất, cho phép ghép nối ổn định với các mạng lưới AC \cite{justo2013ac}. Các tải AC có thể được kết nối trực tiếp với thanh cái AC, trong khi các tải DC yêu cầu bộ biến đổi AC-DC để cấp nguồn.\par
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/Content_Pages/Chapter_1/C1_6.pdf}
+    \caption{Kiến trúc lưới điện siêu nhỏ DC điển hình.}
+    \label{fig:C1_6}
+\end{figure}
+Tuy nhiên, nhiều nguồn phân tán và thiết bị lưu trữ năng lượng, chẳng hạn như hệ thống phát điện mặt trời (PV), các dãy ắc quy, siêu tụ điện, v.v., vốn dĩ hoạt động dựa trên dòng một chiều (DC). Những thiết bị này cần có thêm các bộ nghịch lưu DC-AC để điều chỉnh điện áp về dạng AC nhằm có thể kết nối với thanh cái AC chung. Ngay cả các tua-bin gió, mặc dù có thể tạo ra đầu ra dạng AC, tần số của chúng lại thay đổi và không đồng bộ với tần số của lưới điện tiện ích. Do đó, đầu ra của chúng vẫn cần được chuyển đổi sang DC trước khi kết nối trở lại thanh cái AC thông qua các bộ nghịch lưu.\par
+Vì vậy, cấu hình một thanh cái DC có thể giúp tiết kiệm chi phí cho các bộ chuyển đổi giao tiếp và giảm độ phức tạp của hệ thống. Hơn nữa, hệ thống DC không có tần số, do đó lưới điệnsiêu nhỏDC không yêu cầu điều khiển tần số phức tạp hay đồng bộ hóa. Hình \ref{fig:C1_6} minh họa một cấu hình lưới điệnsiêu nhỏDC điển hình. Các tải DC có thể được kết nối trực tiếp với thanh cái DC. Một bộ nghịch lưu giao tiếp là cần thiết để kết nối lưới điệnsiêu nhỏDC với lưới điện truyền thống.
+So với lưới điệnsiêu nhỏxoay chiều (AC), các ưu điểm của lưới điệnsiêu nhỏmột chiều (DC) được tóm tắt như sau \cite{justo2013ac}\cite{lotfi2015ac}:\par
+\begin{itemize}
+    \item Hiệu suất sử dụng năng lượng cao hơn nhờ giảm số lượng bộ chuyển đổi;
+    \item Không có công suất phản kháng, sóng hài và yêu cầu đồng bộ hóa;
+    \item Dễ dàng hơn trong việc điều khiển và tích hợp các nguồn năng lượng tái tạo DC khác nhau.
+\end{itemize}
+\subsubsection{Ứng dụng của lưới diện siêu nhỏ DC}
+Nhiều nghiên cứu đã được thực hiện trong lĩnh vực lưới điện siêu nhỏ một chiều \cite{marnay2015microgrid}. Tại Hoa Kỳ, khái niệm Hệ thống Phân phối và Quản lý Năng lượng Điện Tái tạo Tương lai (Future Renewable Electrical Energy Delivery and Management - FREEDM) \cite{huang2010future}\cite{huang2010freedm}\cite{heydt2010future} đã được đề xuất cho hệ thống phân phối điện thông minh trong tương lai. Trong khuôn khổ này, lưới điện siêu nhỏ một chiều đóng vai trò quan trọng. \par
+Nhiều mô hình thử nghiệm lưới điện siêu nhỏ một chiều đã được triển khai, chẳng hạn như tòa nhà DC tại Đại học Hạ Môn, Trung Quốc \cite{zhang2015advantages}, phòng thí nghiệm lưới điện siêu nhỏ thông minh tích hợp trí tuệ nhân tạo tại Đan Mạch \cite{diaz2015intelligent}, hệ thống lưới điện siêu nhỏ DC trên đảo Nushima, Nhật Bản \cite{cho2019demonstration}, thư viện DC do Đại học Bath thực hiện tại Anh, và hệ thống lưới điện siêu nhỏ DC Burlington tại Canada. Tài liệu tham khảo \cite{marnay2015microgrid} cung cấp thêm các ví dụ khác về lưới điện siêu nhỏ DC. Các ứng dụng này chủ yếu tập trung vào các tòa nhà công nghiệp và điện khí hóa đảo xa. Ngoài ra, lưới điện siêu nhỏ DC DC còn được áp dụng trên tàu biển, máy bay và trong các trung tâm dữ liệu \cite{gharehpetian2021microgrids}. \par
+\subsubsection{Các vấn đề của lưới điện siêu nhỏ DC}
+Nghiên cứu về lưới điện siêu nhỏ DC bao gồm nhiều chủ đề khác nhau, như điều khiển, phân tích ổn định, bảo vệ, cấu trúc hệ thống và các giao thức truyền thông. Nghiên cứu trình bày trong đồ án này tập trung vào việc nghiên cứu các chiến lược điều khiển và các vấn đề về ổn định hệ thống.\par
+Các hệ thống lưới điện siêu nhỏ DC thường sử dụng sơ đồ điều khiển phân cấp. Một sơ đồ điều khiển phân cấp điển hình có thể được tham khảo tại Chương 2. Các tầng điều khiển thấp đảm nhận việc điều khiển động lực học các bộ biến đổi giao diện, trong khi các tầng điều khiển cao chịu trách nhiệm quản lý/điều phối công suất thông qua cơ sở hạ tầng truyền thông. \par
+Việc điều khiển các hệ thống DC microgrid hướng tới mục tiêu phân phối điện năng thông minh và tự động, phù hợp với xu hướng phát triển của lưới điện thông minh trong tương lai. Mặc dù việc tích hợp cơ sở hạ tầng truyền thông vào hệ thống DC microgrid giúp công tác quản lý công suất trở nên dễ dàng hơn, nhưng các cấu trúc điều khiển phức tạp làm gia tăng chi phí lắp đặt. Điều này gây khó khăn cho các dự án điện khí hóa vùng sâu vùng xa, đặc biệt tại các quốc gia đang phát triển - một trong những ứng dụng quan trọng của DC microgrid. \par
+Ổn định là yêu cầu thiết yếu khác trong vận hành hệ thống vi mạng lưới điện một chiều (DC microgrid). Các vấn đề ổn định trong DC microgrid liên quan đến việc duy trì điện áp bus ổn định và ngăn ngừa sự cố mất điện, sẽ được thảo luận chi tiết trong Chương 2. Một nguyên nhân tiềm ẩn gây mất ổn định là sự tương tác giữa các bộ biến đổi mắc nối tiếp.\par
+Bộ biến đổi phía tải (hay còn gọi là bộ biến đổi điểm tải) hoạt động như tải công suất không đổi và sẽ tạo ra điện trở gia tăng âm. Hiện tượng này có thể tương tác với các bộ biến đổi hoặc bộ lọc phía trước tạo thành mạch dao động âm. Có hai phương pháp phân tích ổn định chính: (1) phân tích tuyến tính tín hiệu nhỏ và (2) phân tích phi tuyến tín hiệu lớn. \par
+Phương pháp tuyến tính tín hiệu nhỏ dựa trên định lý về độ lợi vòng nhỏ của Middlebrook, cung cấp các chỉ dẫn thiết kế cho các bộ biến đổi mắc nối tiếp. Ý tưởng cốt lõi của phân tích tín hiệu nhỏ là tuyến tính hóa hệ thống phi tuyến quanh điểm làm việc tĩnh. Trong khi đó, phân tích phi tuyến tín hiệu lớn xem xét miền hội tụ (còn gọi là miền hấp dẫn) - nơi hệ thống luôn có xu hướng ổn định khi hoạt động trong miền này. \par
+Tuy nhiên, phân tích phi tuyến có độ phức tạp cao và đòi hỏi khối lượng tính toán lớn. Hơn nữa, phương pháp này khó áp dụng để hướng dẫn thiết kế bộ điều khiển thông thường và phù hợp với các ứng dụng công nghiệp thực tế. Do đó, trong luận án này, tác giả lựa chọn phương pháp tuyến tính tín hiệu nhỏ làm phương pháp phân tích chính. \par
+Bên cạnh hiện tượng mất ổn định do các bộ biến đổi điểm tải gây ra, các bộ biến đổi phía nguồn cũng có thể tương tác lẫn nhau. Việc áp dụng điều khiển droop sẽ làm thay đổi điểm làm việc tĩnh và có nguy cơ gây mất ổn định hệ thống. Hơn nữa, các bộ biến đổi giao diện được mô tả bằng hàm truyền pha không cực tiểu cũng tiềm ẩn nguy cơ mất ổn định. \par
+Từ góc độ điều khiển, các phương pháp truyền thống để giảm ảnh hưởng của bộ biến đổi giao diện pha không cực tiểu chủ yếu dựa trên điện trở ký sinh của tụ điện đầu ra. Tuy nhiên, điện trở này lại gây ra hiện tượng gợn sóng điện áp. Do đó, cần phát triển các phương pháp điều khiển phù hợp để xử lý vấn đề pha không cực tiểu đồng thời thích ứng với các điều kiện vận hành phức tạp trong hệ thống DC microgrid. \par
+\subsection{Mục tiêu và đóng góp của nghiên cứu}
+Từ các tài liệu đã được khảo cứu, có thể thấy rằng lưới điện siêu nhỏ DC đã được nghiên cứu ở nhiều cấp độ khác nhau bởi các nhà nghiên cứu. Tuy nhiên, vẫn còn một số chủ đề cần được tiếp tục nghiên cứu sâu hơn, chẳng hạn như so sánh toàn diện các phương pháp bù trạng thái ổn định, mô hình hóa động lực và phân tích các lưới điện siêu nhỏ DC theo nhiều thang thời gian. Do đó, các mục tiêu của luận văn này bao gồm: \par
+\begin{itemize}
+    \item Nghiên cứu mô hình hóa lưới điện siêu nhỏ DC trong miền thời gian;
+    \item Phân tích ổn định tín hiệu nhỏ của lưới điện siêu nhỏ DC;
+    \item Cải thiện hiệu năng chia sẻ tải và điều chỉnh điện áp thanh cái trong lưới điện siêu nhỏ DC sử dụng điều khiển sụt áp (droop control) 
+\end{itemize} 
+
+\subsection{Cấu trúc đồ án}
+Luận văn này được tổ chức thành bảy chương. Chương 1 trình bày tổng quan về lưới điện vi mô, so sánh giữa lưới điện siêu nhỏ AC và DC, tổng quan tài liệu nghiên cứu, cũng như động lực và mục tiêu của luận văn. \par
+Chương 2 tập trung trình bày về cấu trúc của lưới điện siêu nhỏ DC và các phương pháp điều khiển truyền thống. Phần này bắt đầu bằng việc giải tích lưới điện siêu nhỏ DC theo góc nhìn của giải tích mạch điện. Tiếp theo, chương này rút ra các giới hạn của điều khiển sụt áp cơ bản cũng như mâu thuẫn giữa việc điều chỉnh điện áp và chia sẻ tải. \par
+Từ các kết luận trong Chương 2, Chương 3 đề xuất mô hình điều khiển phân cấp mới, trên nền phương pháp điều khiển điện áp truyền thống, giúp khắc phục các nhược điểm đã được phân tích phía trên.
+Chương 4 trình bày và chứng minh tính ổn định của phương pháp điều khiển được đề xuất, khẳng định phương pháp đề xuất đảm bảo các tiêu chuẩn ổn định tĩnh và động cho lưới điện siêu nhỏ DC. \par
+Chương 5 và 6 trình bày các kết quả mô phỏng và thực nghiệm của phương pháp điều khiển đề xuất và phương pháp điều khiển truyền thống. Từ đó so sánh và rút ra các kết luận cần thiết. \par
+Cuối cùng, Chương 7 trình bày các kết luận của đề tài, đồng thời đề xuất các hướng nghiên cứu tiếp tục trong tương lai. \par
+\subsection{Công bố khoa học}
+Nghiên cứu này đã được ghi nhận thông qua một số công bố khoa học, được liệt kê dưới đây. Ngoài ra, công trình vẫn còn tiềm năng để phát triển thêm nhiều bài báo khoa học khác trong tương lai. \par
+[1] P. H. Lam, K. N. D. Tran, T. D. Nguyen, H. T. Phuoc, H. D. Nguyen and D. M. Pham, "Adaptive Droop Control System for Automatic Voltage Restoration in DC Microgrids," 2023 International Conference on System Science and Engineering (ICSSE), Ho Chi Minh, Vietnam, 2023, pp. 72-77 \par
+[2] Lam, H.P., Pham, Q.T.D., Ly, T.H., Pham, M.D. and Nguyen, D.H. (2024), Enhancing Power Sharing Strategy for Consistent Decarbonized Energy Sources in DC Residential Microgrids. IEEJ Trans Elec Electron Eng, 19: 1720-1729 \par
+[3] Lam, H. P., Nguyen, H. D., Pham, M. D. (2024). Enhancing stability and voltage quality in remote DC microgrid systems through adaptive droop control approach. International Journal of Power Electronics and Drive Systems (IJPEDS), 15(3), 1456. \par

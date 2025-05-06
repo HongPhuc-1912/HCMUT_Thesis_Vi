@@ -1,0 +1,39 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{Pages/Content_Pages/Configuration/Content_Config}
+\usepackage{pgffor}
+
+\begin{document}
+
+% Trang trắng đầu tiên
+\input{Pages/Content_Pages/Others/0_BlankPage}
+
+% --- Các trang rìa ---
+\pagenumbering{Roman}
+\foreach \x in {
+  1_Preamble,
+  2_Abstract_Vi,
+  3_Abstract_Eng,
+  4_Commitment,
+  5_TOC,
+  6_LOF,
+  7_LOT,
+  8_LOA
+}{
+  \input{Pages/Content_Pages/Others/\x}
+}
+
+% --- Nội dung các chương ---
+\clearpage
+\pagenumbering{arabic}
+\foreach \i in {1,...,7} {
+  \input{Pages/Content_Pages/Chapters/Chapter_\i}
+}
+
+\input{Pages/Content_Pages/Others/Appendix/1_Appendix_A}
+\input{Pages/Content_Pages/Others/Appendix/2_Appendix_B}
+\input{Pages/Content_Pages/Others/Appendix/3_Appendix_C}
+\input{Pages/Content_Pages/Others/Appendix/4_Appendix_D}
+
+\input{Pages/Content_Pages/Others/12_Reference}
+\end{document}

@@ -1,0 +1,10 @@
+{
+  \let\section\oldsection   % Sử dụng bản gốc không phải bản đã được chỉnh trong file Sty
+  \let\newpage\oldnewpage   % Sử dụng bản gốc không phải bản đã được chỉnh trong file Sty
+  \clearpage
+  \pagestyle{chapter}      % Áp dụng kiểu trang đặc biệt
+  \section*{TÀI LIỆU THAM KHẢO}
+  \addcontentsline{toc}{section}{TÀI LIỆU THAM KHẢO}
+  \printbibliography[heading=none]
+  \clearpage
+}

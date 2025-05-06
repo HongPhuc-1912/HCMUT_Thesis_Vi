@@ -1,0 +1,189 @@
+\usepackage[a4paper,right=2cm,left=3cm,top=2cm,bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc} % Để sử dụng Tiếng Việt
+\usepackage[fontsize=13pt]{scrextend} % Set fontsize=13pt
+
+\usepackage{mathptmx}           % Time New Roman
+\usepackage{graphicx}           % Thư viện chèn ảnh
+\usepackage{float}              % Set vị trí chèn ảnh
+\usepackage{tikz}               % Thư viện vẽ hình
+\usetikzlibrary{calc}           % Thư viện vẽ khung bìa
+\usepackage{xhfill}             % vẽ đường thẳng
+\usepackage{indentfirst}        % Thụt đầu dòng cho đoạn
+\usepackage{hyperref}           % Thư viện tạo Hyperlink
+\usepackage{lipsum}             % for dummy text
+\usepackage{enumitem}
+\usepackage{fancyhdr}           % Cáu hình đầu trang và chân trang
+\usepackage{array}
+\usepackage{tabularx}           % For tables
+\usepackage{setspace}           % Giãn dòng trong ô
+\usepackage{booktabs}           % Để bảng đẹp hơn, dùng \toprule, \midrule, \bottomrule
+\usepackage{graphicx,import}    % Thư viện nhập hình từ PDL_TEX
+\usepackage[titles]{tocloft}    % Thư viện chỉnh sửa mục lục
+\usepackage{titlesec} 
+\usepackage{lipsum}             % Thư viện định nghĩa lại các thuật ngữ bằng tiếng việt
+\usepackage{caption}            % Cấu hình lại caption
+\usepackage{pdfpages}           % Chèn PDF vào file tex
+\usepackage[style=ieee,sorting=none]{biblatex} % Khai báo trích dẫn chuẩn IEEE
+\usepackage{chngcntr}           % Đánh số hình
+\usepackage{amsmath,amssymb} % Các ký hiệu toán
+
+% Cài đặt giản cách dòng
+\renewcommand{\baselinestretch}{1.5} % Giản dòng 1.5
+\setlength{\parskip}{6pt}            % Cách đoạn 6pt
+\setlength{\parindent}{1cm}          % Thụt đầu dòng 1cm
+
+%% Chỉnh sửa mục lục
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}    % Thêm hàng chấm cho Section
+\setlength{\cftsubsecindent}{15pt}                       % Chỉnh thụt dòng cho subsection
+\setlength{\cftsubsubsecindent}{30pt}                    % Chỉnh thụt dòng cho subsubsection
+% Dành cho heading 4
+\newlength{\cftparagraphindent}
+\setlength{\cftparagraphindent}{45pt} % Thụt dòng
+\newlength{\cftparagraphnumwidth}
+\setlength{\cftparagraphnumwidth}{4em}
+\cftsetindents{paragraph}{\cftparagraphindent}{\cftparagraphnumwidth}
+
+
+%% Cấu hình section "Chương x"
+\renewcommand{\cftsecpresnum}{CHƯƠNG~}
+\renewcommand{\cftsecaftersnum}{:\quad}
+\AtBeginDocument{%
+  \addtolength{\cftsecnumwidth}{\widthof{CHƯƠNG~1:\quad} - \cftsecnumwidth}
+}
+
+
+%% Thư viện cài đặc thông số tiêu đề
+% Heading 1 - Tiêu đề chương
+\titleformat{\section}
+    {\fontsize{13pt}{0pt}\selectfont\bfseries\centering\setstretch{1.5}}  % Định dạng
+    {CHƯƠNG~\thesection:}                                 % Label
+    {0.2cm}                 % Khoảng cách giữa label và title
+    {\hangindent = 0em}     % Thụt lề các dòng sau (điều chỉnh 1.5em theo nhu cầu)
+\titlespacing*{\section}
+    {0pt}   % Thụt lề trái
+    {0pt}   % Khoảng cách trước
+    {6pt}   % Khoảng cách sau
+% Heading 2
+\titleformat{\subsection}
+  {\normalfont\fontsize{13pt}{19.5pt}\selectfont\bfseries} 
+  {\thesubsection} % Số subsection
+  {0.5em} % Khoảng cách số và tiêu đề
+  {} % Code trước tiêu đề
+\titlespacing*{\subsection}
+  {0pt} % Thụt lề trái
+  {0pt} % Khoảng cách trước
+  {0pt} % Khoảng cách sau
+  {} % Thụt lề phải (nếu cần)
+    
+% Heading 3
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{13pt}{19.5pt}\selectfont} % Font 13pt, giãn dòng 1.5
+  {\thesubsubsection} % Số subsubsection
+  {0.5em} % Khoảng cách số và tiêu đề
+  {} % Code trước tiêu đề (nếu cần)
+\titlespacing*{\subsubsection}
+  {0pt} % Thụt lề trái (0pt = không thụt)
+  {0pt} % Khoảng cách trước (6pt)
+  {0pt} % Khoảng cách sau (0pt)
+  {} % Thụt lề phải (nếu cần)
+
+% Heading 4
+\setcounter{secnumdepth}{4} % Kích hoạt đánh số cho heading 4
+\setcounter{tocdepth}{4}    % Kích hoạt mục lục cho heading 4
+\titleformat{\paragraph}
+  {\normalfont\fontsize{13pt}{19.5pt}\selectfont} % Font 13pt, giãn dòng 1.5
+  {\theparagraph} % Số thứ tự
+  {0.5em} % Khoảng cách giữa số và tiêu đề
+  {} % Trước tiêu đề
+  [\vspace{0pt}] % Đảm bảo tiêu đề không chạy trong dòng
+\titlespacing*{\paragraph}
+  {0pt} % Thụt lề trái
+  {0pt} % Khoảng cách phía trên
+  {0pt} % Khoảng cách phía dưới
+
+
+%% Tạo chữ tiếng việt
+\renewcommand{\contentsname}    {MỤC LỤC}
+\renewcommand{\listfigurename}  {DANH MỤC HÌNH VẼ}
+\renewcommand{\listtablename}   {DANH MỤC BẢNG BIỂU}
+\renewcommand{\refname}         {TÀI LIỆU THAM KHẢO}
+
+%% Cấu hình Table
+\renewcommand{\arraystretch}{1.5}   % Dãn dòng trong bảng
+
+%% Cấu hình figure
+\renewcommand{\figurename}{\fontsize{12pt}{0pt}\selectfont Hình}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\captionsetup[figure]{
+    labelsep = space,
+    aboveskip = 6pt,
+    belowskip = 6pt
+    }
+\setlength{\textfloatsep}{6pt}  % Khoảng cách giữa float (hình/bảng) và text
+\counterwithin{figure}{section} % Reset số hình khi qua section mới
+
+%% Cấu hình equation
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\counterwithin{equation}{section}
+\setlength{\belowdisplayskip}{6pt}
+
+% Cấu hình danh sách
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+%% Cấu hình cho mục lục
+\fancypagestyle{tocstyle}{
+  \fancyhf{}                         % xóa hết header/footer
+  \renewcommand{\headrulewidth}{0pt} % không vẽ đường ở header
+  \renewcommand{\footrulewidth}{0pt} % không vẽ đường ở footer
+  \cfoot{\thepage}                   % chỉ hiện số trang ở chính giữa footer
+}
+
+%% Cấu hình header và footer cho các mục không đánh số
+% Tạo lệnh cấu hình header và footer mới
+\fancypagestyle{OtherPages}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+% Tạo hàm mới
+\newcommand{\OtherPage}[1]{%
+  \clearpage
+  \thispagestyle{OtherPages}%
+  {\centering\fontsize{13pt}{19pt}\selectfont\section*{#1}}%
+  \addcontentsline{toc}{section}{#1}%
+}
+
+
+%% Cấu hình header và footer cho từng chương 
+% Cấu hình vẽ đường thẳng
+\setlength{\headheight}{20pt}
+\renewcommand{\headrulewidth}{0.5pt} 
+\renewcommand{\footrulewidth}{0.5pt}
+\setlength{\topsep}{0pt}
+% Cấu hình thiết lập đầu trang và chân trang
+\fancypagestyle{chapter}{
+    \fancyhf{}
+    \fancyhead[l]{Đồ án tốt nghiệp}
+    \fancyhead[r]{GVHD: ThS. Nguyễn Đức Hưng}
+    \fancyfoot[c]{\thepage}
+}
+
+\let\oldsection\section % Giữ lại cấu hình cũ 
+% Ghi đè cấu hình section mới
+\renewcommand{\section}{%
+  \clearpage
+  \pagestyle{chapter}%
+  \oldsection
+}
+
+\let\oldnewpage\newpage
+\renewcommand{\newpage}{%
+  \oldnewpage
+  \pagestyle{chapter}
+}
+
+
+%% Tài liệu tham khảo
+\addbibresource{Pages/Content_Pages/Others/Ref.bib}
